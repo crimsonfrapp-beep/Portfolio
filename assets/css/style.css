@@ -1,5 +1,5 @@
 :root {
-  --text: #202020;
+  --text: rgba(32, 32, 32, 0.88);
   --muted: rgba(32, 32, 32, 0.5);
   --soft: rgba(32, 32, 32, 0.65);
   --card: #f4f4f4;
@@ -77,11 +77,11 @@ ul { margin: 0; padding: 0; }
 .all-projects > ul { overflow: hidden; list-style: none; }
 .sidebar.is-open .all-projects { grid-template-rows: 1fr; opacity: 1; }
 
-.all-projects li { padding-bottom: 12px; }
+.all-projects li { line-height: 1.2; padding-bottom: 18px; }
 .all-projects li:last-child { padding-bottom: 36px; }
-.all-projects a { display: block; }
-.all-projects a:hover .arrow { transform: translate(2px, -2px); }
-.all-projects .meta { color: var(--muted); }
+.all-projects a { display: inline-block; transition: color 0.2s; }
+.all-projects a:hover { color: var(--muted); }
+.all-projects .meta { margin-top: 8px; }
 
 .toggle {
   display: inline-flex;
@@ -95,7 +95,9 @@ ul { margin: 0; padding: 0; }
   cursor: pointer;
   transition: color 0.2s;
 }
-.toggle:hover { color: var(--text); }
+.toggle:hover,
+.sidebar.is-open .toggle { color: var(--text); }
+.sidebar.is-open .toggle:hover { color: var(--muted); }
 
 .eyes { display: inline-flex; gap: 4px; }
 .eyes i {
@@ -211,7 +213,9 @@ ul { margin: 0; padding: 0; }
   align-items: center;
   gap: 6px;
   margin-top: 6px;
+  transition: color 0.2s;
 }
+.back:hover { color: var(--muted); }
 .back svg { width: 12px; height: 12px; transition: transform 0.2s var(--ease); }
 .back:hover svg { transform: translateX(-3px); }
 
