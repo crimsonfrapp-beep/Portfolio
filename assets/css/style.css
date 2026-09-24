@@ -86,7 +86,7 @@ ul { margin: 0; padding: 0; }
 .toggle {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   padding: 0;
   border: 0;
   background: none;
@@ -97,23 +97,61 @@ ul { margin: 0; padding: 0; }
 }
 .toggle:hover,
 .sidebar.is-open .toggle { color: var(--text); }
-.sidebar.is-open .toggle:hover { color: var(--muted); }
 
-.eyes { display: inline-flex; gap: 4px; }
-.eyes i {
+/* Eyes: open by default, blink twice on hover, closed while the list is open */
+.eyes {
+  position: relative;
+  flex: none;
+  width: 16px;
+  height: 22px;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.toggle:hover .eyes { color: var(--text); }
+.sidebar.is-open .eyes { color: var(--muted); }
+
+.eyes__open {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  display: flex;
+  gap: 5px;
+}
+.eyes__open i {
   width: 5px;
   height: 12px;
   border-radius: 25px;
   background: currentColor;
-  opacity: 0.8;
-  animation: blink 5s infinite;
-  transition: height 0.3s var(--ease);
 }
-.sidebar.is-open .eyes i { height: 2px; animation: none; }
 
-@keyframes blink {
-  0%, 92%, 100% { transform: scaleY(1); }
-  95% { transform: scaleY(0.1); }
+.eyes__closed {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  opacity: 0;
+}
+
+.toggle:hover .eyes__open { animation: eyes-open 0.4s linear; }
+.toggle:hover .eyes__closed { animation: eyes-closed 0.4s linear; }
+.sidebar.is-open .eyes__open { opacity: 0; animation: none; }
+.sidebar.is-open .eyes__closed { opacity: 1; animation: none; }
+
+/* 150ms open → 85ms closed → 80ms open → 85ms closed → open */
+@keyframes eyes-open {
+  0%, 37.4% { opacity: 1; }
+  37.5%, 58.7% { opacity: 0; }
+  58.8%, 78.7% { opacity: 1; }
+  78.8%, 99.9% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes eyes-closed {
+  0%, 37.4% { opacity: 0; }
+  37.5%, 58.7% { opacity: 1; }
+  58.8%, 78.7% { opacity: 0; }
+  78.8%, 99.9% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 .arrow {
