@@ -186,8 +186,10 @@ ul { margin: 0; padding: 0; }
   transition: flex-basis 0.5s var(--ease), margin 0.5s var(--ease), opacity 0.3s var(--ease);
 }
 .project__info > * { width: 235px; }
+.project__info > div > * { width: auto; }
 
-.project__title { font-size: 17px; }
+.project__title { display: inline-block; font-size: 17px; transition: color 0.2s; }
+.project__title:hover { color: var(--muted); }
 .project__meta { color: var(--muted); margin-top: 4px; }
 .project__desc { color: var(--muted); }
 
