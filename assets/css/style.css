@@ -193,6 +193,8 @@ ul { margin: 0; padding: 0; }
 .card--top > video { object-position: top; }
 .card--bottom > img { object-position: bottom; }
 .card--face > img { object-position: 50% 46%; }
+/* Pushes thin black edges baked into the file outside the card */
+.card--trim > video { transform: scale(1.012); }
 .card--contain > img { object-fit: contain; padding: 24px; }
 .card--zoom > img { transform: scale(1.7); }
 .card--dark { background: radial-gradient(120% 90% at 50% 100%, #6b221c 0%, #2a1311 55%, #140d0c 100%); }
