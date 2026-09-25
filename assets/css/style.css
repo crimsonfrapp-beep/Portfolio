@@ -259,8 +259,7 @@ ul { margin: 0; padding: 0; }
   transition: color 0.2s;
 }
 .back:hover { color: var(--muted); }
-.back svg { width: 12px; height: 12px; transition: transform 0.2s var(--ease); }
-.back:hover svg { transform: translateX(-3px); }
+.back svg { width: 12px; height: 12px; }
 
 .case-head { margin-top: 40px; }
 .case-head h1 { font-size: 22px; font-weight: 400; margin: 0; line-height: 1.3; }
