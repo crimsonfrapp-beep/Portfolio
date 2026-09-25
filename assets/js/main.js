@@ -5,20 +5,18 @@
   if (!sidebar || !toggle) return;
 
   const label = toggle.querySelector('.toggle__label');
-  const KEY = 'all-projects-open';
 
+  // Always starts closed on each page, like the original
   const set = (open) => {
     sidebar.classList.toggle('is-open', open);
     toggle.setAttribute('aria-expanded', String(open));
     label.textContent = open ? 'Hide all projects' : 'Show all projects';
-    try { sessionStorage.setItem(KEY, open ? '1' : '0'); } catch (e) {}
   };
 
-  let initial = false;
-  try { initial = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
-  set(initial);
-
   toggle.addEventListener('click', () => set(!sidebar.classList.contains('is-open')));
+
+  // Pages restored from the back/forward cache keep their DOM state
+  window.addEventListener('pageshow', (e) => { if (e.persisted) set(false); });
 })();
 
 // Play videos only while they are on screen
