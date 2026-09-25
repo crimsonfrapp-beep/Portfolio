@@ -10,6 +10,8 @@
   --pad: 40px;
   /* Strong ease-out for UI interactions */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  /* Gentle ease-in-out for on-screen movement */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 *,
@@ -248,7 +250,8 @@ ul { margin: 0; padding: 0; }
   flex-direction: column;
   justify-content: space-between;
   opacity: 0;
-  transition: flex-basis 0.25s var(--ease-out), margin 0.25s var(--ease-out), opacity 0.15s var(--ease-out);
+  /* Exit */
+  transition: flex-basis 0.45s var(--ease-in-out), margin 0.45s var(--ease-in-out), opacity 0.25s ease;
 }
 .project__info > * { width: 235px; }
 .project__info > div > * { width: auto; }
@@ -270,7 +273,9 @@ ul { margin: 0; padding: 0; }
     flex-basis: 235px;
     margin-right: 0;
     opacity: 1;
-    transition-duration: 0.3s, 0.3s, 0.25s;
+    /* Enter: text fades in while the panel opens */
+    transition-duration: 0.6s, 0.6s, 0.4s;
+    transition-delay: 0s, 0s, 0.15s;
   }
 }
 
