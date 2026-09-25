@@ -160,7 +160,6 @@ ul { margin: 0; padding: 0; }
   height: 9px;
   margin-left: 4px;
   vertical-align: 1px;
-  transition: transform 0.2s var(--ease);
 }
 
 /* ---------- Main ---------- */
@@ -335,7 +334,6 @@ ul { margin: 0; padding: 0; }
 .contacts dd { margin: 0; }
 .contacts a { color: var(--muted); transition: color 0.2s; }
 .contacts a:hover { color: var(--text); }
-.contacts a:hover .arrow { transform: translate(2px, -2px); }
 
 /* ---------- 404 ---------- */
 
