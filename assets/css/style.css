@@ -251,7 +251,7 @@ ul { margin: 0; padding: 0; }
   justify-content: space-between;
   opacity: 0;
   /* Exit */
-  transition: flex-basis 0.45s var(--ease-in-out), margin 0.45s var(--ease-in-out), opacity 0.25s ease;
+  transition: flex-basis 0.35s var(--ease-in-out), margin 0.35s var(--ease-in-out), opacity 0.2s ease;
 }
 .project__info > * { width: 235px; }
 .project__info > div > * { width: auto; }
@@ -274,8 +274,8 @@ ul { margin: 0; padding: 0; }
     margin-right: 0;
     opacity: 1;
     /* Enter: text fades in while the panel opens */
-    transition-duration: 0.6s, 0.6s, 0.4s;
-    transition-delay: 0s, 0s, 0.15s;
+    transition-duration: 0.45s, 0.45s, 0.3s;
+    transition-delay: 0s, 0s, 0.1s;
   }
 }
 
