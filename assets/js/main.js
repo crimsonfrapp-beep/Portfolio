@@ -13,7 +13,22 @@
     label.textContent = open ? 'Hide all projects' : 'Show all projects';
   };
 
-  toggle.addEventListener('click', () => set(!sidebar.classList.contains('is-open')));
+  const isOpen = () => sidebar.classList.contains('is-open');
+  const area = toggle.closest('.sidebar__bottom');
+
+  toggle.addEventListener('click', () => set(!isOpen()));
+
+  // Close on a click anywhere outside the toggle and the list
+  document.addEventListener('click', (e) => {
+    if (isOpen() && !area.contains(e.target)) set(false);
+  });
+
+  // Close on Escape, keeping keyboard focus on the toggle
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape' || !isOpen()) return;
+    if (area.contains(document.activeElement)) toggle.focus();
+    set(false);
+  });
 
   // Pages restored from the back/forward cache keep their DOM state
   window.addEventListener('pageshow', (e) => { if (e.persisted) set(false); });
