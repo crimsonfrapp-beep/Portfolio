@@ -26,7 +26,7 @@ Links use clean URLs (`./about`) — GitHub Pages serves `about.html` for `/abou
   then add a row to `index.html`.
 - Media card: `<div class="card"><img src="assets/media/…" alt="…" loading="lazy"></div>`
   or `<div class="card"><video data-autoplay src="assets/media/….mp4" muted loop playsinline preload="metadata"></video></div>`.
-  Modifiers: `card--top`, `card--bottom`, `card--contain`, `card--zoom`, `card--dark`.
+  Modifiers: `card--top`, `card--bottom`, `card--face`, `card--contain`, `card--zoom`, `card--dark`.
 
 ## Local preview
 
